@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>はじめての投資ノート | ゼロから始める資産形成</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Maru+Gothic:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FDFAF5;
+      --cream-2: #F4EFE5;
+      --sage: #6A9E7A;
+      --sage-pale: #EAF2EC;
+      --terracotta: #C97A52;
+      --terracotta-pale: #FAEDE5;
+      --text: #333;
+      --text-soft: #777;
+      --border: #E2DAD0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      line-height: 1.85;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(253,250,245,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 32px; height: 32px;
+      background: var(--sage);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+
+    .logo-text {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+    }
+
+    .nav-btn {
+      padding: 7px 16px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-beginner {
+      background: var(--sage-pale);
+      color: var(--sage);
+    }
+
+    .nav-advanced {
+      background: var(--terracotta-pale);
+      color: var(--terracotta);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 64px 32px 56px;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 .accent { color: var(--sage); }
+
+    .hero-desc {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      margin-bottom: 36px;
+      line-height: 2;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-sage {
+      background: var(--sage);
+      color: white;
+      padding: 12px 26px;
+      border-radius: 50px;
+      font-size: 0.83rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+
+    .btn-sage:hover { opacity: 0.85; }
+
+    .btn-terra {
+      background: var(--terracotta);
+      color: white;
+      padding: 12px 26px;
+      border-radius: 50px;
+      font-size: 0.83rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+
+    .btn-terra:hover { opacity: 0.85; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 56px 32px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .badge-beginner {
+      background: var(--sage-pale);
+      color: var(--sage);
+    }
+
+    .badge-advanced {
+      background: var(--terracotta-pale);
+      color: var(--terracotta);
+    }
+
+    .section-title {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 1.15rem;
+    }
+
+    .section-sub {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-bottom: 24px;
+      line-height: 1.9;
+    }
+
+    /* ── STEPS ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .step {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .step-num {
+      width: 32px; height: 32px;
+      background: var(--sage);
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin: 0 auto 10px;
+    }
+
+    .step-icon { font-size: 1.2rem; margin-bottom: 6px; }
+    .step-name { font-size: 0.8rem; font-weight: 700; margin-bottom: 4px; font-family: 'Zen Maru Gothic', sans-serif; }
+    .step-text { font-size: 0.72rem; color: var(--text-soft); line-height: 1.7; }
+
+    /* ── ARTICLE LIST ── */
+    .article-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .article-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: white;
+      padding: 18px 22px;
+      transition: background 0.15s;
+    }
+
+    .article-item:hover { background: var(--cream); }
+
+    .article-emoji { font-size: 1.3rem; width: 36px; text-align: center; flex-shrink: 0; }
+
+    .article-info { flex: 1; min-width: 0; }
+
+    .article-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 50px;
+      margin-bottom: 4px;
+      display: inline-block;
+    }
+
+    .tag-sage { background: var(--sage-pale); color: var(--sage); }
+    .tag-terra { background: var(--terracotta-pale); color: var(--terracotta); }
+
+    .article-title {
+      font-size: 0.87rem;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .article-time {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      margin-top: 3px;
+    }
+
+    .article-arrow { color: var(--border); font-size: 1rem; flex-shrink: 0; }
+
+    /* ── ADVANCED SECTION BG ── */
+    .advanced-bg { background: #FBF6F0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #2E2A25;
+      color: rgba(255,255,255,0.55);
+      padding: 40px 32px 24px;
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .footer-logo-icon {
+      width: 28px; height: 28px;
+      background: var(--sage);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+    }
+
+    .footer-logo-text {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.88rem;
+      color: white;
+    }
+
+    .footer-desc { font-size: 0.75rem; line-height: 1.9; max-width: 260px; }
+
+    .footer-links-group { display: flex; gap: 40px; }
+
+    .footer-col-title {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 12px;
+    }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+    .footer-links a {
+      font-size: 0.77rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: white; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-copy { font-size: 0.7rem; }
+
+    .footer-disclaimer {
+      font-size: 0.65rem;
+      max-width: 420px;
+      text-align: right;
+      opacity: 0.5;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      header { padding: 0 16px; }
+      .hero { padding: 48px 20px 40px; }
+      .section-wrap { padding: 40px 20px; }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { flex-direction: column; }
+      .footer-links-group { gap: 24px; }
+      .footer-bottom { flex-direction: column; }
+      .footer-disclaimer { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="#" class="logo">
+      <div class="logo-icon">🌱</div>
+      <div class="logo-text">はじめての投資ノート</div>
+    </a>
+    <nav>
+      <a href="#beginner" class="nav-btn nav-beginner">🌱 初心者向け</a>
+      <a href="#advanced" class="nav-btn nav-advanced">📈 慣れてきたら</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>投資、<span class="accent">どこから</span>始めれば<br>いいかわかりますか？</h1>
+    <p class="hero-desc">
+      難しい言葉なし。損する話も正直に書きます。<br>
+      まずは自分がどっちか選んでみてください。
+    </p>
+    <div class="hero-actions">
+      <a href="#beginner" class="btn-sage">🌱 投資ゼロから始める</a>
+      <a href="#advanced" class="btn-terra">📈 もう少し詳しく知りたい</a>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- BEGINNER SECTION -->
+  <div id="beginner">
+    <div class="section-wrap">
+      <div class="section-head">
+        <span class="section-badge badge-beginner">🌱 初心者向け</span>
+        <span class="section-title">まずここから読んでください</span>
+      </div>
+      <p class="section-sub">
+        「投資って怖い」「よくわからない」という方へ。<br>
+        口座の開き方から最初の1本を買うまで、順番通りに解説しています。
+      </p>
+
+      <!-- 4STEPS -->
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-icon">🎯</div>
+          <div class="step-name">目的を決める</div>
+          <div class="step-text">老後？教育費？<br>目的で選ぶものが変わります</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-icon">🏦</div>
+          <div class="step-name">口座を開く</div>
+          <div class="step-text">スマホで10分。<br>手数料無料がおすすめ</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-icon">🌿</div>
+          <div class="step-name">NISAを設定</div>
+          <div class="step-text">税金ゼロで運用できる<br>国の制度を活用する</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-icon">📦</div>
+          <div class="step-name">最初の1本を買う</div>
+          <div class="step-text">インデックスファンド<br>一択でOK</div>
+        </div>
+      </div>
+
+      <!-- 記事一覧 -->
+      <div class="article-list">
+        <a href="#" class="article-item">
+          <div class="article-emoji">📗</div>
+          <div class="article-info">
+            <div class="article-tag tag-sage">投資入門</div>
+            <div class="article-title">新NISAとは？初心者向けに5分でわかりやすく解説</div>
+            <div class="article-time">5分で読める</div>
+          </div>
+          <div class="article-arrow">›</div>
+        </a>
+        <a href="#" class="article-item">
+          <div class="article-emoji">🏦</div>
+          <div class="article-info">
+            <div class="article-tag tag-sage">証券会社</div>
+            <div class="article-title">SBI証券の口座開設を画面付きで丁寧に解説</div>
+            <div class="article-time">7分で読める</div>
+          </div>
+          <div class="article-arrow">›</div>
+        </a>
+        <a href="#" class="article-item">
+          <div class="article-emoji">🌍</div>
+          <div class="article-info">
+            <div class="article-tag tag-sage">インデックス</div>
+            <div class="article-title">オルカンって何？初心者が最初に買うべき理由</div>
+            <div class="article-time">6分で読める</div>
+          </div>
+          <div class="article-arrow">›</div>
+        </a>
+        <a href="#" class="article-item">
+          <div class="article-emoji">⚠️</div>
+          <div class="article-info">
+            <div class="article-tag tag-sage">リスク</div>
+            <div class="article-title">投資で損しないために知っておくべき3つのこと</div>
+            <div class="article-time">5分で読める</div>
+          </div>
+          <div class="article-arrow">›</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ADVANCED SECTION -->
+  <div id="advanced" class="advanced-bg">
+    <div class="section-wrap">
+      <div class="section-head">
+        <span class="section-badge badge-advanced">📈 慣れてきたら</span>
+        <span class="section-title">もう一歩踏み込んだ内容</span>
+      </div>
+      <p class="section-sub">
+        口座開設・積立設定が終わった方向け。<br>
+        配当株・個別株・iDeCoなど、次のステップを解説しています。
+      </p>
+
+      <div class="article-list">
+        <a href="#" class="article-item">
+          <div class="article-emoji">💰</div>
+          <div class="article-info">
+            <div class="article-tag tag-terra">配当投資</div>
+            <div class="article-title">高配当株とは？インデックスと何が違うのか整理する</div>
+            <div class="article-time">8分で読める</div>
+          </div>
+          <div class="article-arrow">›</div>
+        </a>
+        <a href="#" class="article-item">
+          <div class="article-emoji">🏛️</div>
+          <div class="article-info">
+            <div class="article-tag tag-terra">iDeCo</div>
+            <div class="article-title">iDeCoで年間いくら節税できる？具体的な計算方法</div>
+            <div class="article-time">6分で読める</div>
+          </div>
+          <div class="article-arrow">›</div>
+        </a>
+        <a href="#" class="article-item">
+          <div class="article-emoji">📊</div>
+          <div class="article-info">
+            <div class="article-tag tag-terra">個別株</div>
+            <div class="article-title">決算書の読み方入門｜最初に見るべき3つの数字</div>
+            <div class="article-time">10分で読める</div>
+          </div>
+          <div class="article-arrow">›</div>
+        </a>
+        <a href="#" class="article-item">
+          <div class="article-emoji">🇺🇸</div>
+          <div class="article-info">
+            <div class="article-tag tag-terra">米国株</div>
+            <div class="article-title">日本株 vs 米国株、資産形成にはどちらが向いているか</div>
+            <div class="article-time">7分で読める</div>
+          </div>
+          <div class="article-arrow">›</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">
+            <div class="footer-logo-icon">🌱</div>
+            <div class="footer-logo-text">はじめての投資ノート</div>
+          </div>
+          <div class="footer-desc">株式投資・資産形成に関する情報を初心者にわかりやすく発信するブログです。</div>
+        </div>
+        <div class="footer-links-group">
+          <div>
+            <div class="footer-col-title">記事</div>
+            <ul class="footer-links">
+              <li><a href="#">初心者向け</a></li>
+              <li><a href="#">慣れてきたら</a></li>
+              <li><a href="#">証券会社比較</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">サイト</div>
+            <ul class="footer-links">
+              <li><a href="#">運営者について</a></li>
+              <li><a href="#">プライバシーポリシー</a></li>
+              <li><a href="#">免責事項</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2024 はじめての投資ノート</div>
+        <div class="footer-disclaimer">※当サイトの情報は投資判断の参考を目的としており、特定の売買を推奨するものではありません。投資は自己責任でお願いします。</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
