@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SBI証券の口座開設を丁寧に解説 | はじめての投資ノート</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Maru+Gothic:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FDFAF5;
+      --cream-2: #F4EFE5;
+      --sage: #6A9E7A;
+      --sage-pale: #EAF2EC;
+      --terracotta: #C97A52;
+      --terracotta-pale: #FAEDE5;
+      --text: #333;
+      --text-soft: #777;
+      --border: #E2DAD0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      line-height: 1.85;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(253,250,245,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo { display: flex; align-items: center; gap: 10px; }
+
+    .logo-icon {
+      width: 32px; height: 32px;
+      background: var(--sage);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+
+    .logo-text {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.95rem;
+    }
+
+    nav { display: flex; gap: 8px; }
+
+    .nav-btn {
+      padding: 7px 16px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    .nav-beginner { background: var(--sage-pale); color: var(--sage); }
+    .nav-advanced { background: var(--terracotta-pale); color: var(--terracotta); }
+
+    .article-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    .breadcrumb {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .breadcrumb a { color: var(--sage); }
+
+    .article-tag {
+      display: inline-block;
+      background: var(--sage-pale);
+      color: var(--sage);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+    }
+
+    .article-title {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .summary-box {
+      background: var(--sage-pale);
+      border-left: 4px solid var(--sage);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+    }
+
+    .summary-title {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.85rem;
+      color: var(--sage);
+      margin-bottom: 10px;
+    }
+
+    .summary-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+
+    .summary-list li {
+      font-size: 0.83rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .summary-list li::before { content: '✅'; flex-shrink: 0; }
+
+    .article-body h2 {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 1.15rem;
+      margin: 40px 0 14px;
+      padding-left: 14px;
+      border-left: 4px solid var(--sage);
+      line-height: 1.5;
+    }
+
+    .article-body p {
+      font-size: 0.9rem;
+      line-height: 2;
+      margin-bottom: 18px;
+    }
+
+    .article-body strong { font-weight: 700; }
+
+    .callout {
+      background: var(--terracotta-pale);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 0.85rem;
+      line-height: 1.9;
+    }
+
+    .callout-title {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.88rem;
+      color: var(--terracotta);
+      margin-bottom: 6px;
+    }
+
+    /* ── STEP BOXES ── */
+    .step-box {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 28px 0;
+    }
+
+    .step-box-header {
+      background: var(--sage);
+      color: white;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .step-box-num {
+      width: 26px; height: 26px;
+      background: white;
+      color: var(--sage);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-box-body {
+      background: white;
+      padding: 18px 20px;
+      font-size: 0.87rem;
+      line-height: 2;
+    }
+
+    .step-box-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .step-box-body ul li::before { content: '→ '; color: var(--sage); font-weight: 700; }
+
+    /* ── CHECKLIST ── */
+    .checklist {
+      background: var(--cream-2);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+
+    .checklist-title {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.88rem;
+      margin-bottom: 12px;
+    }
+
+    .checklist ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+    .checklist ul li {
+      font-size: 0.85rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .checklist ul li::before { content: '☐'; font-size: 1rem; flex-shrink: 0; }
+
+    /* ── CTA ── */
+    .cta-box {
+      background: white;
+      border: 2px solid var(--sage);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    .cta-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--text-soft);
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .cta-title {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .cta-desc {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      margin-bottom: 18px;
+      line-height: 1.8;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--sage);
+      color: white;
+      padding: 13px 32px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: opacity 0.2s;
+    }
+
+    .cta-btn:hover { opacity: 0.85; }
+
+    .cta-note { font-size: 0.68rem; color: var(--text-soft); margin-top: 10px; }
+
+    .related-title {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 1rem;
+      margin: 48px 0 16px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .related-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .related-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: white;
+      padding: 16px 18px;
+      transition: background 0.15s;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .related-item:hover { background: var(--cream); }
+    .related-arrow { color: var(--border); margin-left: auto; }
+
+    footer {
+      background: #2E2A25;
+      color: rgba(255,255,255,0.55);
+      padding: 32px;
+      text-align: center;
+      font-size: 0.75rem;
+    }
+
+    .footer-logo {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      color: white;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    .footer-disclaimer {
+      font-size: 0.65rem;
+      opacity: 0.5;
+      max-width: 560px;
+      margin: 12px auto 0;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 700px) {
+      header { padding: 0 16px; }
+      .article-wrap { padding: 40px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">
+      <div class="logo-icon">🌱</div>
+      <div class="logo-text">はじめての投資ノート</div>
+    </a>
+    <nav>
+      <a href="index.html#beginner" class="nav-btn nav-beginner">🌱 初心者向け</a>
+      <a href="index.html#advanced" class="nav-btn nav-advanced">📈 慣れてきたら</a>
+    </nav>
+  </header>
+
+  <div class="article-wrap">
+
+    <div class="breadcrumb">
+      <a href="index.html">トップ</a> › <span>証券会社</span> › <span>SBI証券の口座開設</span>
+    </div>
+
+    <div class="article-tag">🏦 証券会社</div>
+    <h1 class="article-title">SBI証券の口座開設、<br>やさしく全部説明します</h1>
+    <div class="article-meta">
+      <span>📅 2024年4月8日</span>
+      <span>⏱ 約5分で読めます</span>
+    </div>
+
+    <div class="summary-box">
+      <div class="summary-title">📌 この記事でわかること</div>
+      <ul class="summary-list">
+        <li>SBI証券を選ぶ理由</li>
+        <li>口座開設に必要なもの</li>
+        <li>開設の手順（ステップごとに解説）</li>
+        <li>開設後にまずやること</li>
+      </ul>
+    </div>
+
+    <div class="article-body">
+
+      <h2>なぜSBI証券がおすすめなの？</h2>
+      <p>
+        「証券会社っていっぱいあるけど、どこがいいの？」という声をよく聞きます。
+        初心者にとって一番大事なのは<strong>「手数料が安い」「使いやすい」「信頼できる」</strong>の3点。
+        SBI証券はこの3つをすべて満たしています。
+      </p>
+      <p>
+        国内株の取引手数料は無料、口座維持費も無料。
+        投資信託の取り扱い本数も業界トップクラスで、新NISAにも完全対応しています。
+        迷ったらSBI証券、と覚えておけば間違いありません。
+      </p>
+
+      <h2>開設前に準備するもの</h2>
+
+      <div class="checklist">
+        <div class="checklist-title">📋 用意するもの（3つだけ）</div>
+        <ul>
+          <li>本人確認書類（マイナンバーカード、または運転免許証＋マイナンバー通知カード）</li>
+          <li>メールアドレス</li>
+          <li>銀行口座（入金用）</li>
+        </ul>
+      </div>
+
+      <p>
+        スマホがあれば本人確認はその場で完結します。
+        マイナンバーカード1枚あると一番スムーズです。
+      </p>
+
+      <h2>口座開設の手順</h2>
+
+      <div class="step-box">
+        <div class="step-box-header">
+          <div class="step-box-num">1</div>
+          SBI証券の公式サイトにアクセスする
+        </div>
+        <div class="step-box-body">
+          検索で「SBI証券」と調べてトップページへ。
+          「口座開設（無料）」ボタンをクリックします。
+          <ul>
+            <li>偽サイトに注意。URLが「sbisec.co.jp」であることを確認してください</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-box-header">
+          <div class="step-box-num">2</div>
+          メールアドレスを登録する
+        </div>
+        <div class="step-box-body">
+          メールアドレスを入力して送信すると、確認メールが届きます。
+          メール内のリンクをクリックして次のステップへ進みます。
+          <ul>
+            <li>迷惑メールフォルダに入ることがあるので確認してください</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-box-header">
+          <div class="step-box-num">3</div>
+          基本情報を入力する
+        </div>
+        <div class="step-box-body">
+          氏名・住所・生年月日・職業などを入力します。
+          10〜15分ほどかかりますが、落ち着いて進めればOKです。
+          <ul>
+            <li>NISA口座の開設も同時に申し込むことができます（おすすめ）</li>
+            <li>特定口座「源泉徴収あり」を選ぶと確定申告が不要になります</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-box-header">
+          <div class="step-box-num">4</div>
+          本人確認書類を提出する
+        </div>
+        <div class="step-box-body">
+          スマホのカメラで本人確認書類を撮影してアップロードします。
+          マイナンバーカードなら表裏2枚だけでOKです。
+          <ul>
+            <li>画像がぼやけていると再提出になるので、明るい場所で撮影しましょう</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-box-header">
+          <div class="step-box-num">5</div>
+          審査完了を待つ
+        </div>
+        <div class="step-box-body">
+          通常2〜3営業日で審査が完了し、ログインIDがメールで届きます。
+          急ぎの場合はスマホアプリからの申し込みが最短翌営業日で開設できます。
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">💡 開設後すぐやること</div>
+        ログインしたら最初にNISA口座の設定を確認してください。
+        次に銀行口座を登録して入金の準備をすれば、いつでも投資を始められる状態になります。
+      </div>
+
+      <div class="cta-box">
+        <div class="cta-label">📢 PR</div>
+        <div class="cta-title">SBI証券で口座開設する（無料）</div>
+        <div class="cta-desc">
+          口座開設・維持費は完全無料。<br>
+          新NISAにも対応。まずは口座だけ作っておくのもアリです。
+        </div>
+        <a href="#" class="cta-btn">SBI証券の公式サイトへ</a>
+        <div class="cta-note">※当リンクはアフィリエイトリンクです</div>
+      </div>
+
+    </div>
+
+    <div class="related-title">📖 次に読みたい記事</div>
+    <div class="related-list">
+      <a href="nisa.html" class="related-item">
+        <span>📗</span>
+        <span>新NISAとは？初心者向けに3分でわかりやすく解説</span>
+        <span class="related-arrow">›</span>
+      </a>
+      <a href="#" class="related-item">
+        <span>🌍</span>
+        <span>オルカンって何？初心者が最初に買うべき理由</span>
+        <span class="related-arrow">›</span>
+      </a>
+      <a href="#" class="related-item">
+        <span>⚠️</span>
+        <span>投資で損しないために知っておくべき3つのこと</span>
+        <span class="related-arrow">›</span>
+      </a>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-logo">🌱 はじめての投資ノート</div>
+    <div>© 2024 はじめての投資ノート</div>
+    <div class="footer-disclaimer">
+      ※当サイトの情報は投資判断の参考を目的としており、特定の売買を推奨するものではありません。投資は自己責任でお願いします。
+    </div>
+  </footer>
+
+</body>
+</html>
