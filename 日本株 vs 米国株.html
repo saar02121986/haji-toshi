@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日本株 vs 米国株、資産形成にはどちらが向いているか | はじめての投資ノート</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Maru+Gothic:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{--cream:#FDFAF5;--cream-2:#F4EFE5;--sage:#6A9E7A;--sage-pale:#EAF2EC;--terracotta:#C97A52;--terracotta-pale:#FAEDE5;--text:#333;--text-soft:#777;--border:#E2DAD0;}
+    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+    body{background:var(--cream);color:var(--text);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:1.85;}
+    a{color:inherit;text-decoration:none;}
+    header{position:sticky;top:0;z-index:100;background:rgba(253,250,245,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+    .logo{display:flex;align-items:center;gap:10px;}
+    .logo-icon{width:32px;height:32px;background:var(--sage);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;}
+    .logo-text{font-family:'Zen Maru Gothic',sans-serif;font-size:0.95rem;}
+    nav{display:flex;gap:8px;}
+    .nav-btn{padding:7px 16px;border-radius:50px;font-size:0.78rem;font-weight:500;}
+    .nav-beginner{background:var(--sage-pale);color:var(--sage);}
+    .nav-advanced{background:var(--terracotta-pale);color:var(--terracotta);}
+    .article-wrap{max-width:680px;margin:0 auto;padding:56px 32px 80px;}
+    .breadcrumb{font-size:0.72rem;color:var(--text-soft);margin-bottom:28px;display:flex;align-items:center;gap:6px;}
+    .breadcrumb a{color:var(--sage);}
+    .article-tag{display:inline-block;background:var(--terracotta-pale);color:var(--terracotta);font-size:0.68rem;font-weight:700;padding:3px 12px;border-radius:50px;margin-bottom:16px;}
+    .article-title{font-family:'Zen Maru Gothic',sans-serif;font-size:clamp(1.4rem,4vw,1.9rem);line-height:1.55;margin-bottom:20px;}
+    .article-meta{display:flex;align-items:center;gap:16px;font-size:0.75rem;color:var(--text-soft);margin-bottom:36px;padding-bottom:28px;border-bottom:1px solid var(--border);}
+    .summary-box{background:var(--terracotta-pale);border-left:4px solid var(--terracotta);border-radius:0 12px 12px 0;padding:20px 24px;margin-bottom:40px;}
+    .summary-title{font-family:'Zen Maru Gothic',sans-serif;font-size:0.85rem;color:var(--terracotta);margin-bottom:10px;}
+    .summary-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+    .summary-list li{font-size:0.83rem;display:flex;align-items:flex-start;gap:8px;}
+    .summary-list li::before{content:'✅';flex-shrink:0;}
+    .article-body h2{font-family:'Zen Maru Gothic',sans-serif;font-size:1.15rem;margin:40px 0 14px;padding-left:14px;border-left:4px solid var(--terracotta);line-height:1.5;}
+    .article-body p{font-size:0.9rem;line-height:2;margin-bottom:18px;}
+    .article-body strong{font-weight:700;}
+    .callout{background:var(--sage-pale);border-radius:12px;padding:18px 22px;margin:24px 0;font-size:0.85rem;line-height:1.9;}
+    .callout-title{font-family:'Zen Maru Gothic',sans-serif;font-size:0.88rem;color:var(--sage);margin-bottom:6px;}
+    .callout-warn{background:var(--terracotta-pale);}
+    .callout-title-warn{color:var(--terracotta);}
+    .compare-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:0.83rem;}
+    .compare-table th{background:var(--terracotta);color:white;padding:10px 14px;text-align:left;font-weight:500;}
+    .compare-table td{padding:10px 14px;border-bottom:1px solid var(--border);background:white;}
+    .compare-table tr:last-child td{border-bottom:none;}
+    .highlight{color:var(--terracotta);font-weight:700;}
+    .verdict-box{background:white;border:2px solid var(--terracotta);border-radius:14px;padding:24px;margin:28px 0;text-align:center;}
+    .verdict-title{font-family:'Zen Maru Gothic',sans-serif;font-size:1rem;color:var(--terracotta);margin-bottom:12px;}
+    .verdict-text{font-size:0.87rem;line-height:2;}
+    .cta-box{background:white;border:2px solid var(--terracotta);border-radius:16px;padding:28px;margin:40px 0;text-align:center;}
+    .cta-label{font-size:0.68rem;font-weight:700;color:var(--text-soft);letter-spacing:0.1em;margin-bottom:8px;}
+    .cta-title{font-family:'Zen Maru Gothic',sans-serif;font-size:1.05rem;margin-bottom:6px;}
+    .cta-desc{font-size:0.78rem;color:var(--text-soft);margin-bottom:18px;line-height:1.8;}
+    .cta-btn{display:inline-block;background:var(--terracotta);color:white;padding:13px 32px;border-radius:50px;font-size:0.85rem;font-weight:700;transition:opacity 0.2s;}
+    .cta-btn:hover{opacity:0.85;}
+    .cta-note{font-size:0.68rem;color:var(--text-soft);margin-top:10px;}
+    .related-title{font-family:'Zen Maru Gothic',sans-serif;font-size:1rem;margin:48px 0 16px;padding-top:40px;border-top:1px solid var(--border);}
+    .related-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+    .related-item{display:flex;align-items:center;gap:14px;background:white;padding:16px 18px;transition:background 0.15s;font-size:0.85rem;font-weight:500;}
+    .related-item:hover{background:var(--cream);}
+    .related-arrow{color:var(--border);margin-left:auto;}
+    footer{background:#2E2A25;color:rgba(255,255,255,0.55);padding:32px;text-align:center;font-size:0.75rem;}
+    .footer-logo{font-family:'Zen Maru Gothic',sans-serif;color:white;font-size:0.9rem;margin-bottom:8px;}
+    .footer-disclaimer{font-size:0.65rem;opacity:0.5;max-width:560px;margin:12px auto 0;line-height:1.8;}
+    @media(max-width:700px){header{padding:0 16px;}.article-wrap{padding:40px 20px 60px;}}
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo"><div class="logo-icon">🌱</div><div class="logo-text">はじめての投資ノート</div></a>
+    <nav><a href="index.html#beginner" class="nav-btn nav-beginner">🌱 初心者向け</a><a href="index.html#advanced" class="nav-btn nav-advanced">📈 慣れてきたら</a></nav>
+  </header>
+  <div class="article-wrap">
+    <div class="breadcrumb"><a href="index.html">トップ</a> › <span>戦略・分析</span> › <span>日本株 vs 米国株</span></div>
+    <div class="article-tag">🇺🇸 戦略・分析</div>
+    <h1 class="article-title">日本株 vs 米国株<br>資産形成にはどちらが向いているか</h1>
+    <div class="article-meta"><span>📅 2024年3月5日</span><span>⏱ 約5分で読めます</span></div>
+    <div class="summary-box">
+      <div class="summary-title">📌 この記事でわかること</div>
+      <ul class="summary-list">
+        <li>日本株と米国株の違い</li>
+        <li>それぞれのメリット・デメリット</li>
+        <li>初心者はどちらを選べばいいか</li>
+      </ul>
+    </div>
+    <div class="article-body">
+      <h2>「日本株か米国株か」よく聞かれます</h2>
+      <p>投資を始めようとすると必ずぶつかる疑問が「日本株と米国株、どっちがいいの？」です。結論から言うと、<strong>どちらにも一長一短があり、目的によって変わります。</strong></p>
+      <p>この記事では両者を正直に比較して、初心者にどちらが向いているかをお伝えします。</p>
+
+      <h2>日本株と米国株の基本的な違い</h2>
+      <table class="compare-table">
+        <tr><th></th><th>🇯🇵 日本株</th><th>🇺🇸 米国株</th></tr>
+        <tr><td>取引通貨</td><td>円</td><td>ドル（為替リスクあり）</td></tr>
+        <tr><td>過去10年リターン</td><td>まずまず</td><td class="highlight">高い</td></tr>
+        <tr><td>配当の頻度</td><td>年1〜2回</td><td class="highlight">年4回（四半期ごと）</td></tr>
+        <tr><td>株主優待</td><td class="highlight">あり</td><td>なし</td></tr>
+        <tr><td>情報の入手しやすさ</td><td class="highlight">日本語で豊富</td><td>英語が多い</td></tr>
+        <tr><td>市場規模</td><td>中程度</td><td class="highlight">世界最大</td></tr>
+      </table>
+
+      <h2>米国株が注目される理由</h2>
+      <p>過去20〜30年のデータを見ると、米国株（S&P500）は日本株を大きくアウトパフォームしてきました。GAFAMをはじめとする世界的な大企業が集中しており、<strong>世界経済の成長をそのまま享受できる</strong>という強みがあります。</p>
+      <p>ただし、<strong>円安になると為替差損が発生する</strong>リスクもあります。ドル建ての資産なので、円高になると日本円に換算したときの価値が下がります。</p>
+
+      <h2>日本株のメリット</h2>
+      <p>日本株の最大の特徴は<strong>株主優待制度</strong>です。自社製品や食事券などが贈られるユニークな制度で、日本だけにある文化です。また、情報がすべて日本語で入手できるので、初心者にも取り組みやすい面があります。</p>
+
+      <div class="callout">
+        <div class="callout-title">💡 結論：初心者はオルカンかS&P500から</div>
+        個別の日本株・米国株を選ぶのは難易度が高いです。まずはオルカン（全世界株）かS&P500のインデックスファンドで始めるのが、最もリスクが低く失敗しにくい方法です。
+      </div>
+
+      <h2>どちらを選ぶべきか？</h2>
+      <div class="verdict-box">
+        <div class="verdict-title">🎯 シンプルな結論</div>
+        <div class="verdict-text">
+          <strong>為替リスクが気になる → 日本株中心</strong><br>
+          <strong>長期リターンを重視する → 米国株・S&P500</strong><br>
+          <strong>どちらか迷う → オルカン（全世界株）で両方カバー</strong>
+        </div>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title callout-title-warn">⚠️ 過去のリターンは将来を保証しない</div>
+        米国株がこれまで好調だったからといって、今後も同じとは限りません。どちらを選ぶにせよ、長期・分散・積立の原則を守ることが大切です。
+      </div>
+
+      <div class="cta-box">
+        <div class="cta-label">📢 PR</div>
+        <div class="cta-title">日本株も米国株もSBI証券で</div>
+        <div class="cta-desc">国内株・米国株ともに取引手数料無料。<br>1つの口座で両方投資できます。</div>
+        <a href="#" class="cta-btn">SBI証券の口座を開設する（無料）</a>
+        <div class="cta-note">※当リンクはアフィリエイトリンクです</div>
+      </div>
+    </div>
+    <div class="related-title">📖 次に読みたい記事</div>
+    <div class="related-list">
+      <a href="orukan.html" class="related-item"><span>🌍</span><span>オルカンって何？初心者が最初に買うべき理由</span><span class="related-arrow">›</span></a>
+      <a href="dividend.html" class="related-item"><span>💰</span><span>高配当株とは？インデックスと何が違うのか整理する</span><span class="related-arrow">›</span></a>
+      <a href="kessan.html" class="related-item"><span>📊</span><span>決算書の読み方入門｜最初に見るべき3つの数字</span><span class="related-arrow">›</span></a>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-logo">🌱 はじめての投資ノート</div>
+    <div>© 2024 はじめての投資ノート</div>
+    <div class="footer-disclaimer">※当サイトの情報は投資判断の参考を目的としており、特定の売買を推奨するものではありません。投資は自己責任でお願いします。</div>
+  </footer>
+</body>
+</html>
