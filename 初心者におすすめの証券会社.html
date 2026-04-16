@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>証券会社比較2026 | はじめての投資ノート</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Maru+Gothic:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{--cream:#FDFAF5;--cream-2:#F4EFE5;--sage:#6A9E7A;--sage-pale:#EAF2EC;--terracotta:#C97A52;--terracotta-pale:#FAEDE5;--text:#333;--text-soft:#777;--border:#E2DAD0;}
+    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+    body{background:var(--cream);color:var(--text);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:1.85;}
+    a{color:inherit;text-decoration:none;}
+    header{position:sticky;top:0;z-index:100;background:rgba(253,250,245,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+    .logo{display:flex;align-items:center;gap:10px;}
+    .logo-icon{width:32px;height:32px;background:var(--sage);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;}
+    .logo-text{font-family:'Zen Maru Gothic',sans-serif;font-size:0.95rem;}
+    nav{display:flex;gap:8px;}
+    .nav-btn{padding:7px 16px;border-radius:50px;font-size:0.78rem;font-weight:500;}
+    .nav-beginner{background:var(--sage-pale);color:var(--sage);}
+    .nav-advanced{background:var(--terracotta-pale);color:var(--terracotta);}
+    .wrap{max-width:720px;margin:0 auto;padding:56px 32px 80px;}
+    .breadcrumb{font-size:0.72rem;color:var(--text-soft);margin-bottom:28px;display:flex;align-items:center;gap:6px;}
+    .breadcrumb a{color:var(--sage);}
+    .article-tag{display:inline-block;background:var(--sage-pale);color:var(--sage);font-size:0.68rem;font-weight:700;padding:3px 12px;border-radius:50px;margin-bottom:16px;}
+    .page-title{font-family:'Zen Maru Gothic',sans-serif;font-size:clamp(1.4rem,4vw,1.9rem);line-height:1.55;margin-bottom:20px;}
+    .page-meta{font-size:0.75rem;color:var(--text-soft);margin-bottom:36px;padding-bottom:28px;border-bottom:1px solid var(--border);}
+    .summary-box{background:var(--sage-pale);border-left:4px solid var(--sage);border-radius:0 12px 12px 0;padding:20px 24px;margin-bottom:40px;}
+    .summary-title{font-family:'Zen Maru Gothic',sans-serif;font-size:0.85rem;color:var(--sage);margin-bottom:10px;}
+    .summary-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+    .summary-list li{font-size:0.83rem;display:flex;align-items:flex-start;gap:8px;}
+    .summary-list li::before{content:'✅';flex-shrink:0;}
+    h2{font-family:'Zen Maru Gothic',sans-serif;font-size:1.15rem;margin:40px 0 14px;padding-left:14px;border-left:4px solid var(--sage);line-height:1.5;}
+    p{font-size:0.9rem;line-height:2;margin-bottom:18px;}
+    strong{font-weight:700;}
+    .broker-card{background:white;border:1px solid var(--border);border-radius:20px;padding:28px;margin:20px 0;}
+    .broker-header{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
+    .broker-rank{width:36px;height:36px;background:var(--sage);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-size:1rem;flex-shrink:0;}
+    .broker-rank.rank-2{background:#A0A0A0;}
+    .broker-rank.rank-3{background:#C9884A;}
+    .broker-name{font-family:'Zen Maru Gothic',sans-serif;font-size:1.05rem;}
+    .broker-tag{display:inline-block;background:var(--sage-pale);color:var(--sage);font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:50px;margin-left:8px;}
+    .broker-desc{font-size:0.85rem;line-height:1.9;margin-bottom:16px;}
+    .broker-points{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:20px;}
+    .broker-points li{font-size:0.82rem;display:flex;align-items:flex-start;gap:8px;}
+    .broker-points li::before{content:'◎';color:var(--sage);font-weight:700;flex-shrink:0;}
+    .broker-cta{display:inline-block;background:var(--sage);color:white;padding:11px 24px;border-radius:50px;font-size:0.82rem;font-weight:700;transition:opacity 0.2s;}
+    .broker-cta:hover{opacity:0.85;}
+    .broker-cta.rank-2-btn{background:#555;}
+    .broker-cta.rank-3-btn{background:var(--terracotta);}
+    .cta-note{font-size:0.65rem;color:var(--text-soft);margin-top:8px;}
+    .compare-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:0.8rem;overflow-x:auto;display:block;}
+    .compare-table th{background:var(--sage);color:white;padding:10px 14px;text-align:center;font-weight:500;white-space:nowrap;}
+    .compare-table td{padding:10px 14px;border-bottom:1px solid var(--border);background:white;text-align:center;}
+    .compare-table td:first-child{text-align:left;font-weight:500;}
+    .compare-table tr:last-child td{border-bottom:none;}
+    .best{color:var(--sage);font-weight:700;}
+    .callout{background:var(--terracotta-pale);border-radius:12px;padding:18px 22px;margin:24px 0;font-size:0.85rem;line-height:1.9;}
+    .callout-title{font-family:'Zen Maru Gothic',sans-serif;font-size:0.88rem;color:var(--terracotta);margin-bottom:6px;}
+    footer{background:#2E2A25;color:rgba(255,255,255,0.55);padding:32px;text-align:center;font-size:0.75rem;}
+    .footer-logo{font-family:'Zen Maru Gothic',sans-serif;color:white;font-size:0.9rem;margin-bottom:8px;}
+    .footer-disclaimer{font-size:0.65rem;opacity:0.5;max-width:560px;margin:12px auto 0;line-height:1.8;}
+    @media(max-width:700px){header{padding:0 16px;}.wrap{padding:40px 20px 60px;}}
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo"><div class="logo-icon">🌱</div><div class="logo-text">はじめての投資ノート</div></a>
+    <nav><a href="index.html#beginner" class="nav-btn nav-beginner">🌱 初心者向け</a><a href="index.html#advanced" class="nav-btn nav-advanced">📈 慣れてきたら</a></nav>
+  </header>
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">トップ</a> › <span>証券会社比較</span></div>
+    <div class="article-tag">🏦 証券会社比較</div>
+    <h1 class="page-title">初心者におすすめの証券会社<br>2026年版 比較ランキング</h1>
+    <div class="page-meta">📅 2026年4月16日更新 ⏱ 約5分で読めます</div>
+
+    <div class="summary-box">
+      <div class="summary-title">📌 この記事でわかること</div>
+      <ul class="summary-list">
+        <li>初心者に向いている証券会社はどこか</li>
+        <li>SBI証券・楽天証券・松井証券の違い</li>
+        <li>自分に合った証券会社の選び方</li>
+      </ul>
+    </div>
+
+    <p>証券会社はたくさんありますが、初心者が選ぶべきは手数料無料・使いやすい・信頼できるの3点を満たすところです。ここでは実際に使って比較した3社をご紹介します。</p>
+
+    <div class="callout">
+      <div class="callout-title">💡 結論を先に言うと</div>
+      迷ったら<strong>SBI証券</strong>を選べば間違いありません。口座数・取扱商品・手数料のすべてで業界トップクラスです。
+    </div>
+
+    <h2>比較ランキング</h2>
+
+    <!-- SBI証券 -->
+    <div class="broker-card">
+      <div class="broker-header">
+        <div class="broker-rank">1</div>
+        <div>
+          <div class="broker-name">SBI証券 <span class="broker-tag">🏆 総合No.1</span></div>
+        </div>
+      </div>
+      <div class="broker-desc">国内証券口座数No.1。新NISAにも完全対応しており、国内株・米国株ともに取引手数料が無料。2026年現在も投資信託の取扱本数・使いやすさともに業界トップクラスを維持しています。</div>
+      <ul class="broker-points">
+        <li>国内株・米国株の取引手数料が無料</li>
+        <li>投資信託の取扱本数が業界最多クラス（2,600本以上）</li>
+        <li>新NISAに完全対応、スマホアプリから積立設定が簡単</li>
+        <li>三井住友カードで積立するとVポイントが貯まる</li>
+        <li>Vポイント・Pontaポイントなど複数ポイントに対応</li>
+      </ul>
+      <a href="#" class="broker-cta">SBI証券で口座開設する（無料）</a>
+      <div class="cta-note">※当リンクはアフィリエイトリンクです</div>
+    </div>
+
+    <!-- 楽天証券 -->
+    <div class="broker-card">
+      <div class="broker-header">
+        <div class="broker-rank rank-2">2</div>
+        <div>
+          <div class="broker-name">楽天証券 <span class="broker-tag" style="background:#FFF0F0;color:#CC4444;">楽天ユーザーに◎</span></div>
+        </div>
+      </div>
+      <div class="broker-desc">楽天グループのサービスをよく使う方に特におすすめ。楽天カードで積立するとポイントが還元されます。2026年はポイント還元率の改定があり、楽天プレミアムカードとの組み合わせでさらにお得になっています。</div>
+      <ul class="broker-points">
+        <li>楽天カードで積立するとポイント還元あり（上限月5万円）</li>
+        <li>楽天銀行との連携でお得な金利優遇（マネーブリッジ）</li>
+        <li>画面がシンプルで初心者でも使いやすい</li>
+        <li>楽天ポイントをそのまま投資に使える</li>
+      </ul>
+      <a href="#" class="broker-cta rank-2-btn">楽天証券で口座開設する（無料）</a>
+      <div class="cta-note">※当リンクはアフィリエイトリンクです</div>
+    </div>
+
+    <!-- 松井証券 -->
+    <div class="broker-card">
+      <div class="broker-header">
+        <div class="broker-rank rank-3">3</div>
+        <div>
+          <div class="broker-name">松井証券 <span class="broker-tag" style="background:var(--terracotta-pale);color:var(--terracotta);">サポート充実</span></div>
+        </div>
+      </div>
+      <div class="broker-desc">老舗ネット証券で信頼性が高く、サポートが充実しています。「投資信託の残高に応じてポイント還元」というユニークな仕組みがあります。</div>
+      <ul class="broker-points">
+        <li>投資信託の保有残高に応じてポイント還元</li>
+        <li>電話サポートが充実していて初心者も安心</li>
+        <li>50万円以下なら国内株取引手数料が無料</li>
+      </ul>
+      <a href="#" class="broker-cta rank-3-btn">松井証券で口座開設する（無料）</a>
+      <div class="cta-note">※当リンクはアフィリエイトリンクです</div>
+    </div>
+
+    <h2>3社の比較表</h2>
+    <table class="compare-table">
+      <tr><th>項目</th><th>SBI証券</th><th>楽天証券</th><th>松井証券</th></tr>
+      <tr><td>国内株手数料</td><td class="best">無料</td><td class="best">無料</td><td>50万円以下無料</td></tr>
+      <tr><td>米国株手数料</td><td class="best">無料</td><td class="best">無料</td><td>0.495%</td></tr>
+      <tr><td>投信本数</td><td class="best">2,600本+</td><td>2,500本+</td><td>1,800本+</td></tr>
+      <tr><td>ポイント還元</td><td>三井住友カード</td><td class="best">楽天カード</td><td>保有残高</td></tr>
+      <tr><td>サポート</td><td>普通</td><td>普通</td><td class="best">充実</td></tr>
+    </table>
+
+    <h2>どれを選べばいい？</h2>
+    <p><strong>とにかく迷いたくない → SBI証券</strong><br>
+    すべての面でバランスが良く、後悔しにくい選択です。</p>
+    <p><strong>楽天をよく使っている → 楽天証券</strong><br>
+    楽天ポイントが貯まり・使えるのでお得です。</p>
+    <p><strong>サポートを重視したい → 松井証券</strong><br>
+    電話で丁寧に教えてもらえるので初心者にも安心です。</p>
+
+    <div class="callout">
+      <div class="callout-title">💡 実は2つ開設してもOK</div>
+      証券口座はいくつ持っても問題ありません。SBI証券で積立しながら、楽天証券でも別の商品を買うという使い方もできます。
+    </div>
+  </div>
+  <footer>
+    <div class="footer-logo">🌱 はじめての投資ノート</div>
+    <div>© 2024 はじめての投資ノート</div>
+    <div class="footer-disclaimer">※当サイトの情報は投資判断の参考を目的としており、特定の売買を推奨するものではありません。投資は自己責任でお願いします。</div>
+  </footer>
+</body>
+</html>
